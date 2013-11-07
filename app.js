@@ -92,11 +92,14 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-//setup passport
+//config passport
 require('./passport')(app, passport, express);
 
 //route requests
 require('./routes')(app, passport);
+
+//route sockets
+require('./sockets')(app);
 
 //setup utilities
 require('./utilities')(app);
